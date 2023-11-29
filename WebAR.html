@@ -8,4 +8,26 @@
         <a-entity position='0 0 -1' rotation="270 0 0" scale="0.5 0.5 0.5" gltf-model="url(assets/model.gltf)"></a-entity>
       </a-marker>
     </a-scene>
+
+    <div id="markerStatus" style="position: absolute; top: 10px; left: 10px; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
+      Marker not detected
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const marker = document.querySelector('#marker');
+        const statusText = document.getElementById('markerStatus');
+
+        marker.addEventListener('markerFound', () => {
+          statusText.textContent = 'Marker detected!';
+        });
+
+        marker.addEventListener('markerLost', () => {
+          statusText.textContent = 'Marker not detected';
+        });
+      });
+    </script>
+
+
+    
 </body>
