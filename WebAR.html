@@ -14,19 +14,22 @@
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const marker = document.querySelector('#marker');
-        const statusText = document.getElementById('markerStatus');
-
-        marker.addEventListener('markerFound', () => {
-          statusText.textContent = 'Marker detected!';
-        });
-
-        marker.addEventListener('markerLost', () => {
-          statusText.textContent = 'Marker not detected';
-        });
+      AFRAME.registerComponent('marker-handler', {
+        init: function() {
+          const markerEl = this.el;
+          const statusText = document.getElementById('markerStatus');
+    
+          markerEl.addEventListener('markerFound', () => {
+            statusText.textContent = 'Marker detected!';
+          });
+    
+          markerEl.addEventListener('markerLost', () => {
+            statusText.textContent = 'Marker not detected';
+          });
+        }
       });
     </script>
+
 
 
     
