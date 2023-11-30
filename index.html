@@ -51,19 +51,34 @@
         <script>
           document.addEventListener('DOMContentLoaded', () => {
             const scene = document.querySelector('a-scene');
-        
+            //PC
             scene.addEventListener('click', () => {
-              console.log('Model clicked'); // 确认事件是否触发
-              // 这里添加切换动画的代码
-              const model = document.querySelector('#bowser-model');
-              // 示例动画剪辑名称数组，需要根据您的模型中的动画剪辑名称进行修改
-              const clips = ['0|standing_0', '0|sitting_0', '0|shake_0'];
-              let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
-              currentClipIndex = (currentClipIndex + 1) % clips.length;
-              model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
-              model.dataset.clipIndex = currentClipIndex + 1; // 更新剪辑索引
-            });
-          });
+                  console.log('Model clicked'); // 确认事件是否触发
+                  // 这里添加切换动画的代码
+                  const model = document.querySelector('#bowser-model');
+                  // 示例动画剪辑名称数组，需要根据您的模型中的动画剪辑名称进行修改
+                  const clips = ['0|standing_0', '0|sitting_0', '0|shake_0'];
+                  let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
+                  currentClipIndex = (currentClipIndex + 1) % clips.length;
+                  model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
+                  model.dataset.clipIndex = currentClipIndex + 1; // 更新剪辑索引
+                });
+              });
+            //moble
+            scene.addEventListener('touchstart', () => {
+                  console.log('Model touched'); // 确认事件是否触发
+                  // 这里添加切换动画的代码
+                  const model = document.querySelector('#bowser-model');
+                  // 示例动画剪辑名称数组，需要根据您的模型中的动画剪辑名称进行修改
+                  const clips = ['0|standing_0', '0|sitting_0', '0|shake_0'];
+                  let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
+                  currentClipIndex = (currentClipIndex + 1) % clips.length;
+                  model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
+                  model.dataset.clipIndex = currentClipIndex + 1; // 更新剪辑索引
+                });
+              });
+            
+            
         </script>
        
         
