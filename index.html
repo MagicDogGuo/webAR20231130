@@ -62,8 +62,7 @@
                   currentClipIndex = (currentClipIndex + 1) % clips.length;
                   model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
                   model.dataset.clipIndex = currentClipIndex + 1; // 更新剪辑索引
-                });
-              });
+            });
             //moble
             scene.addEventListener('touchstart', () => {
                   console.log('Model touched'); // 确认事件是否触发
@@ -75,9 +74,12 @@
                   currentClipIndex = (currentClipIndex + 1) % clips.length;
                   model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
                   model.dataset.clipIndex = currentClipIndex + 1; // 更新剪辑索引
-                });
-              });
-            
+            });
+
+              
+          });
+          
+         
             
         </script>
        
