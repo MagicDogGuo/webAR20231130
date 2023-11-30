@@ -33,5 +33,25 @@
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
+
+        <div id="gps-data" style="position: absolute; top: 10px; left: 10px; color: black; background: white; padding: 10px;">
+          經度: <span id="longitude">等待中...</span><br>
+          緯度: <span id="latitude">等待中...</span><br>
+          高度: <span id="altitude">等待中...</span>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const gpsCamera = document.querySelector('a-camera[gps-camera]');
+            const longitudeDisplay = document.getElementById('longitude');
+            const latitudeDisplay = document.getElementById('latitude');
+            const altitudeDisplay = document.getElementById('altitude');
+        
+            gpsCamera.addEventListener('gps-camera-update-position', e => {
+              longitudeDisplay.textContent = e.detail.position.longitude.toFixed(6);
+              latitudeDisplay.textContent = e.detail.position.latitude.toFixed(6);
+              altitudeDisplay.textContent = e.detail.position.altitude.toFixed(2);
+            });
+          });
+        </script>
     </body>
 </html>
